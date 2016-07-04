@@ -9,6 +9,7 @@
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <html>
 <head>
+    <link rel="stylesheet" href="/resources/style/reset.css">
     <title><tiles:getAsString name="title"/></title>
 </head>
 <body>
@@ -16,5 +17,6 @@
 <div><tiles:insertAttribute name="menu"/></div>
 <div><tiles:insertAttribute name="body"/></div>
 <div><tiles:insertAttribute name="footer"/>
+    <script src="/resources/js/jquery-1.12.4.min.js"></script>
 </body>
 </html>

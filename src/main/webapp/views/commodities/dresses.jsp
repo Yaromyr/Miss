@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<form:form action="/add/new/commodity/dress" method="post" modelAttribute="commodity">
+<form:form id="add-new-dress" action="/add/new/commodity/dress" method="post" modelAttribute="commodity">
     <div>
         <form:label path="brand">Бренд:</form:label>
         <form:input path="brand"/>

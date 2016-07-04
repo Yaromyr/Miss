@@ -7,9 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ua.com.miss.dao.UserDao;
-import ua.com.miss.entity.Orders;
 import ua.com.miss.entity.User;
 import ua.com.miss.service.UserService;
 

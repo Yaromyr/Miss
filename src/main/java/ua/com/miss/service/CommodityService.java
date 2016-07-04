@@ -1,7 +1,6 @@
 package ua.com.miss.service;
 
 import ua.com.miss.entity.Commodity;
-import ua.com.miss.entity.Orders;
 
 import java.util.List;
 

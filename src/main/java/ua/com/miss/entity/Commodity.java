@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Commodity.findCommodityByCategoryName", query = "SELECT c from Commodity c WHERE c.category like :name")
+        @NamedQuery(name = "Commodity.findCommodityByCategoryName", query = "SELECT c FROM Commodity c WHERE c.category LIKE :name")
 })
 public class Commodity {
     @Id
@@ -38,9 +38,9 @@ public class Commodity {
     private Sizes sizes;
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "commodity")
     private List<CommodityPictures> commodityPicturesList;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Orders orders;
-
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name =  "user_commodities", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_user"))
+    private List<User>userList;
 
     public Commodity() {
     }
@@ -123,14 +123,6 @@ public class Commodity {
 
     public void setSizes(Sizes sizes) {
         this.sizes = sizes;
-    }
-
-    public Orders getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Orders orders) {
-        this.orders = orders;
     }
 
     public List<CommodityPictures> getCommodityPicturesList() {

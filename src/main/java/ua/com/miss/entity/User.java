@@ -24,8 +24,9 @@ public class User {
     private String password;
     @Transient
     private String passwordConfirm;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Orders>ordersList;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_commodities", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_commodity"))
+    private List<Commodity>commodityList;
 
     public User() {
     }
@@ -86,11 +87,4 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public List<Orders> getOrdersList() {
-        return ordersList;
-    }
-
-    public void setOrdersList(List<Orders> ordersList) {
-        this.ordersList = ordersList;
-    }
 }
