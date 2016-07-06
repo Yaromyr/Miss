@@ -24,6 +24,9 @@
         <property name="fallbackToSystemLocale" value="false" />
     </bean>
 
+    <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+    </bean>
+
 
     <context:component-scan base-package="ua.com.miss.*"/>
     <jpa:repositories base-package="ua.com.miss.dao"/>

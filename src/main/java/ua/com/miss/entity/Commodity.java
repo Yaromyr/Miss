@@ -1,7 +1,8 @@
 package ua.com.miss.entity;
 
-import ua.com.miss.enums.Colors;
-import ua.com.miss.enums.Sizes;
+import ua.com.miss.filtes.Colors;
+import ua.com.miss.filtes.Sizes;
+import ua.com.miss.filtes.Styles;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Commodity.findCommodityByCategoryName", query = "SELECT c FROM Commodity c WHERE c.category LIKE :name")
+        @NamedQuery(name = "Commodity.findCommodityByCategoryName", query = "SELECT c FROM Commodity c WHERE c.category LIKE :name"),
 })
 public class Commodity {
     @Id
@@ -29,18 +30,23 @@ public class Commodity {
     @Column
     private int rentPrice;
     @Column
-    private int buyPrice;
-    @Column
     private boolean action;
-    @Enumerated(EnumType.STRING)
-    private Colors colors;
-    @Enumerated(EnumType.STRING)
-    private Sizes sizes;
+    @Column
+    private int buyPrice;
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "commodity")
     private List<CommodityPictures> commodityPicturesList;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "commodity_colors", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_color"))
+    private List<Colors> colorsList;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "commodity_sizes", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_size"))
+    private List<Sizes> sizesList;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "commodity_styles", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_style"))
+    private List<Styles> stylesList;
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name =  "user_commodities", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_user"))
-    private List<User>userList;
+    @JoinTable(name = "user_commodities", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_user"))
+    private List<User> userList;
 
     public Commodity() {
     }
@@ -109,27 +115,43 @@ public class Commodity {
         this.action = action;
     }
 
-    public Colors getColors() {
-        return colors;
-    }
-
-    public void setColors(Colors colors) {
-        this.colors = colors;
-    }
-
-    public Sizes getSizes() {
-        return sizes;
-    }
-
-    public void setSizes(Sizes sizes) {
-        this.sizes = sizes;
-    }
-
     public List<CommodityPictures> getCommodityPicturesList() {
         return commodityPicturesList;
     }
 
     public void setCommodityPicturesList(List<CommodityPictures> commodityPicturesList) {
         this.commodityPicturesList = commodityPicturesList;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    public List<Colors> getColorsList() {
+        return colorsList;
+    }
+
+    public void setColorsList(List<Colors> colorsList) {
+        this.colorsList = colorsList;
+    }
+
+    public List<Sizes> getSizesList() {
+        return sizesList;
+    }
+
+    public void setSizesList(List<Sizes> sizesList) {
+        this.sizesList = sizesList;
+    }
+
+    public List<Styles> getStylesList() {
+        return stylesList;
+    }
+
+    public void setStylesList(List<Styles> stylesList) {
+        this.stylesList = stylesList;
     }
 }

@@ -24,7 +24,7 @@ public class User {
     private String password;
     @Transient
     private String passwordConfirm;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_commodities", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_commodity"))
     private List<Commodity>commodityList;
 
@@ -87,4 +87,11 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
+    public List<Commodity> getCommodityList() {
+        return commodityList;
+    }
+
+    public void setCommodityList(List<Commodity> commodityList) {
+        this.commodityList = commodityList;
+    }
 }

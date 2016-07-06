@@ -7,7 +7,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import ua.com.miss.dao.CommodityDao;
 import ua.com.miss.dao.UserDao;
+import ua.com.miss.entity.Commodity;
 import ua.com.miss.entity.User;
 import ua.com.miss.service.UserService;
 
@@ -16,11 +18,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Service
+@Service("userDetailsService")
 public class UserServiceImpl implements UserService, UserDetailsService{
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private CommodityDao commodityDao;
 
     @Override
     public void save(User user) {
@@ -32,6 +37,15 @@ public class UserServiceImpl implements UserService, UserDetailsService{
     @Override
     public void delete(int id) {
         userDao.delete(userDao.findOne(id));
+    }
+
+    @Override
+    public void buyCommodity(String principal, String id) {
+        User user = userDao.findOne(Integer.parseInt(id));
+        List<Commodity>commodityList = user.getCommodityList();
+        commodityList.add(commodityDao.findOne(Integer.parseInt(id)));
+        user.setCommodityList(commodityList);
+        userDao.save(user);
     }
 
     @Override

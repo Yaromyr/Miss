@@ -4,6 +4,8 @@
        xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <import resource="beans.xml"/>
+
     <security:http>
         <security:intercept-url pattern="/" access="permitAll()"/>
         <security:form-login login-page="/loginpage" login-processing-url="/login"/>
@@ -15,9 +17,10 @@
         <security:authentication-provider>
             <security:user-service>
                 <security:user name="admin" password="admin" authorities="ROLE_ADMIN"/>
-
             </security:user-service>
         </security:authentication-provider>
-
+        <security:authentication-provider user-service-ref="userDetailsService">
+            <security:password-encoder ref="encoder"/>
+        </security:authentication-provider>
     </security:authentication-manager>
 </beans>
