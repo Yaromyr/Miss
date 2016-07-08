@@ -26,4 +26,9 @@ public class SizesServiceImpl implements SizesService {
     public List<Sizes> findAllSizes() {
         return sizesDao.findAll();
     }
+
+    @Override
+    public Sizes findByName(String name) {
+        return sizesDao.findByName(name);
+    }
 }

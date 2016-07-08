@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ua.com.miss.entity.Commodity;
 import ua.com.miss.entity.User;
 import ua.com.miss.service.CommodityService;
+import ua.com.miss.service.OrderService;
 import ua.com.miss.service.UserService;
 
 import java.security.Principal;
@@ -23,16 +24,17 @@ public class OrderController {
     private UserService userService;
 
     @Autowired
-    private CommodityService commodityService;
+    private OrderService orderService;
 
     @RequestMapping(value = "/buy/commodity/{id}", method = RequestMethod.POST)
     public String buyCommodity(Principal principal, @PathVariable String id){
-        userService.buyCommodity(principal.getName(), id);
+        orderService.buy(principal.getName(), id);
         return "redirect:/";
     }
 
     @RequestMapping(value = "/rent/commodity/{id}", method = RequestMethod.POST)
-    public String rentCommodity(@PathVariable String id){
+    public String rentCommodity(Principal principal, @PathVariable String id){
+        orderService.rent(principal.getName(), id);
         return "redirect:/";
     }
 }

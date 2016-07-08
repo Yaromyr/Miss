@@ -9,6 +9,9 @@ import java.util.List;
  * Created by Yulian Bulbuk on 05.07.2016.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Color.findByColor", query = "SELECT c FROM Colors  c WHERE c.name LIKE :name")
+})
 public class Colors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

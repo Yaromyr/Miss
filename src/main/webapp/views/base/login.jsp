@@ -7,11 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<form:form action="/login" method="post">
-    <h1>Увійдіть у сайт</h1>
-    <label for="login-user-name">Логін:</label>
-    <input id="login-user-name" placeholder="Email або телефон" name="username" required>
-    <label for="login-user-password">Пароль:</label>
-    <input id="login-user-password" placeholder="Пароль" name="password" required>
-    <button type="submit">Увійти</button>
-</form:form>
+<section class="content login-page">
+    <div class="login_content pure-u-5-12">
+        <form:form cssClass="login_form" action="/login" method="post">
+            <h1 style="color: #f096b6">Увійти</h1>
+            <input id="login-user-name" class="pr-login" placeholder="Email або телефон" name="username" required>
+            <br>
+            <br>
+            <input id="login-user-password" type="password" class="pr-password" placeholder="Пароль" name="password" required>
+            <br>
+            <br>
+            <button class="pr-enter-but" type="submit">Увійти</button>
+        </form:form>
+    </div>
+</section>

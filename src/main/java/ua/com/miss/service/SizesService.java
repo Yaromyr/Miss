@@ -1,6 +1,7 @@
 package ua.com.miss.service;
 
 import ua.com.miss.entity.Commodity;
+import ua.com.miss.filtes.Colors;
 import ua.com.miss.filtes.Sizes;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface SizesService {
     Sizes findOneById(int id);
 
     List<Sizes> findAllSizes();
+
+    Sizes findByName (String name);
 }

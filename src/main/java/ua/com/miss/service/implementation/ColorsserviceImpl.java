@@ -26,4 +26,9 @@ public class ColorsServiceImpl implements ColorsService{
     public List<Colors> findAllColors() {
         return colorsDao.findAll();
     }
+
+    @Override
+    public Colors findByName(String name) {
+        return colorsDao.findByName(name);
+    }
 }

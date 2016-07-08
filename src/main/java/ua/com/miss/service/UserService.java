@@ -10,8 +10,6 @@ public interface UserService {
 
     void delete(int id);
 
-    void buyCommodity(String principal, String id);
-
     User findOneById(int id);
 
     List<User> findAllUsers();

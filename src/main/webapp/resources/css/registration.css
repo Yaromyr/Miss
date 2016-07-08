@@ -1,0 +1,209 @@
+.registration-page {
+    padding: 90px 0 5%;
+    min-height: 670px
+}
+
+.registration-page .reg_content {
+    margin: 0 auto;
+    display: block;
+    text-align: left;
+    border: 1px solid #f096b6;
+    border-radius: 15px;
+    background: #fff;
+    padding-left: 30px
+}
+
+.registration-page .reg_content input::-webkit-input-placeholder {
+    color: grey;
+    font-size: 80%
+}
+
+.registration-page .reg_content input::-moz-placeholder {
+    color: grey;
+    font-size: 80%
+}
+
+.registration-page .reg_content input:-moz-placeholder {
+    color: grey;
+    font-size: 80%
+}
+
+.registration-page .reg_content input:-ms-input-placeholder {
+    color: grey;
+    font-size: 80%
+}
+
+.registration-page .reg_form {
+    padding: 8% 0
+}
+
+.registration-page .reg_field {
+    line-height: 100%;
+    position: relative;
+    margin-bottom: 3%
+}
+
+.registration-page .reg_field input {
+    position: absolute;
+    left: 28%;
+    margin: 0 auto
+}
+
+.registration-page .reg_field span {
+    font-size: 80%;
+    width: 160px;
+    text-align: center;
+    background-color: #f096b6;
+    padding: 5px;
+    color: white;
+    z-index: 10;
+    position: absolute;
+    border-radius: 5px;
+    right: -12%
+}
+
+.registration-page .button_field {
+    text-align: center;
+    margin-top: 6%
+}
+
+.registration-page .pr-login, .registration-page .pr-name, .registration-page .pr-password, .registration-page .pr-surname, .registration-page .pr-e-mail, .registration-page .pr-phone, .registration-page .pr-city, .registration-page .pr-birthday {
+    border: 2px solid #f096b6;
+    border-radius: 15px;
+    padding-left: 10px;
+    outline: none;
+    width: 44%
+}
+
+.registration-page .pr-reg-but, .registration-page .pr-load {
+    border-radius: 15px;
+    padding: 0px 10px;
+    background-color: #f096b6;
+    color: white;
+    border: 2px solid #f096b6;
+    outline: none
+}
+
+.registration-page .pr-reg-but:hover, .registration-page .pr-load:hover {
+    background-color: #f076ae
+}
+
+.registration-page .file_upload {
+    font-size: 12px;
+    position: relative;
+    overflow: hidden;
+    height: 2em;
+    line-height: 2em;
+    width: 50%;
+    margin: 0 auto
+}
+
+.registration-page .file_upload > button {
+    width: 50%;
+    float: left;
+    border-radius: 15px;
+    background-color: #f096b6;
+    color: white;
+    border: 2px solid #f096b6;
+    outline: none
+}
+
+.registration-page .file_upload > button:hover {
+    background-color: #f076ae
+}
+
+.registration-page .file_upload input[type=file] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: scale(20);
+    -moz-transform: scale(20);
+    -ms-transform: scale(20);
+    -o-transform: scale(20);
+    transform: scale(20);
+    letter-spacing: 10em;
+    opacity: 0;
+    cursor: pointer
+}
+
+.registration-page .file_upload > div {
+    width: 50%;
+    display: inline-block;
+    float: left;
+    vertical-align: top
+}
+
+@media screen and (max-width: 1280px) {
+    .registration-page .file_upload {
+        font-size: 10px
+    }
+
+    .registration-page .reg_field span {
+        right: -20%
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .registration-page .pr-login, .registration-page .pr-name, .registration-page .pr-password, .registration-page .pr-surname, .registration-page .pr-e-mail, .registration-page .pr-phone, .registration-page .pr-city, .registration-page .pr-birthday {
+        width: 55%
+    }
+
+    .registration-page .file_upload > button {
+        width: 100%
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .registration-page .pr-login, .registration-page .pr-name, .registration-page .pr-password, .registration-page .pr-surname, .registration-page .pr-e-mail, .registration-page .pr-phone, .registration-page .pr-city, .registration-page .pr-birthday {
+        width: 76%
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .registration-page .pr-login, .registration-page .pr-name, .registration-page .pr-password, .registration-page .pr-surname, .registration-page .pr-e-mail, .registration-page .pr-phone, .registration-page .pr-city, .registration-page .pr-birthday {
+        width: 70%
+    }
+
+    .registration-page .reg_content {
+        margin-top: 30px;
+        width: 45% !important
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .registration-page .pr-login, .registration-page .pr-name, .registration-page .pr-password, .registration-page .pr-surname, .registration-page .pr-e-mail, .registration-page .pr-phone, .registration-page .pr-city, .registration-page .pr-birthday {
+        width: 70%
+    }
+
+    .registration-page .reg_content {
+        margin-top: 30px;
+        width: 60% !important
+    }
+
+    .registration-page .file_upload {
+        outline: 0;
+        width: 80%;
+        text-align: center;
+        margin-right: 17.5%
+    }
+
+    .registration-page .file_upload > div {
+        display: none
+    }
+
+    .registration-page .file_upload > button {
+        width: 80%;
+        float: right
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .registration-page .reg_content {
+        margin-top: 20px;
+        width: 80% !important
+    }
+}
+
+/*# sourceMappingURL=registration.css.map */

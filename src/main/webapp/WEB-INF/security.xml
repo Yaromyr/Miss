@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:security="http://www.springframework.org/schema/security"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
     <import resource="beans.xml"/>
 
     <security:http>
         <security:intercept-url pattern="/" access="permitAll()"/>
+        <security:intercept-url pattern="/add/new/commodity/dress" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/add/new/commodity/embroider" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/add/new/commodity/accessory" access="hasRole('ROLE_ADMIN')"/>
+
+
         <security:form-login login-page="/loginpage" login-processing-url="/login"/>
         <security:logout logout-url="/logout"/>
     </security:http>
 
+    <security:global-method-security secured-annotations="enabled"/>
 
     <security:authentication-manager>
         <security:authentication-provider>

@@ -40,15 +40,6 @@ public class UserServiceImpl implements UserService, UserDetailsService{
     }
 
     @Override
-    public void buyCommodity(String principal, String id) {
-        User user = userDao.findOne(Integer.parseInt(id));
-        List<Commodity>commodityList = user.getCommodityList();
-        commodityList.add(commodityDao.findOne(Integer.parseInt(id)));
-        user.setCommodityList(commodityList);
-        userDao.save(user);
-    }
-
-    @Override
     public User findOneById(int id) {
         return userDao.findOne(id);
     }

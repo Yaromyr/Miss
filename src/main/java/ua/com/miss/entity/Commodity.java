@@ -2,7 +2,6 @@ package ua.com.miss.entity;
 
 import ua.com.miss.filtes.Colors;
 import ua.com.miss.filtes.Sizes;
-import ua.com.miss.filtes.Styles;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,6 +29,12 @@ public class Commodity {
     @Column
     private int rentPrice;
     @Column
+    private String type;
+    @Column
+    private String length;
+    @Column
+    private String style;
+    @Column
     private boolean action;
     @Column
     private int buyPrice;
@@ -41,12 +46,9 @@ public class Commodity {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "commodity_sizes", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_size"))
     private List<Sizes> sizesList;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "commodity_styles", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_style"))
-    private List<Styles> stylesList;
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_commodities", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_user"))
-    private List<User> userList;
+    @JoinTable(name = "order_commodities", joinColumns = @JoinColumn(name = "id_commodity"), inverseJoinColumns = @JoinColumn(name = "id_order"))
+    private List<Order> userList;
 
     public Commodity() {
     }
@@ -115,20 +117,36 @@ public class Commodity {
         this.action = action;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
     public List<CommodityPictures> getCommodityPicturesList() {
         return commodityPicturesList;
     }
 
     public void setCommodityPicturesList(List<CommodityPictures> commodityPicturesList) {
         this.commodityPicturesList = commodityPicturesList;
-    }
-
-    public List<User> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
     }
 
     public List<Colors> getColorsList() {
@@ -147,11 +165,11 @@ public class Commodity {
         this.sizesList = sizesList;
     }
 
-    public List<Styles> getStylesList() {
-        return stylesList;
+    public List<Order> getUserList() {
+        return userList;
     }
 
-    public void setStylesList(List<Styles> stylesList) {
-        this.stylesList = stylesList;
+    public void setUserList(List<Order> userList) {
+        this.userList = userList;
     }
 }

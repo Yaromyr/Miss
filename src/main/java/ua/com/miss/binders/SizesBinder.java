@@ -19,6 +19,6 @@ public class SizesBinder extends PropertyEditorSupport {
 
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
-        setValue(sizesService.findOneById(Integer.valueOf(text)));
+        setValue(sizesService.findByName(text));
     }
 }

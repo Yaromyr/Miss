@@ -13,4 +13,6 @@ public interface ColorsService {
     Colors findOneById(int id);
 
     List<Colors> findAllColors();
+
+    Colors findByName(String name);
 }
